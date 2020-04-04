@@ -16,6 +16,10 @@ module.exports = {
     desc: "Reprodueix LA playlist",
     short: "playlist",
     exec: async (msg, playData, args) => {
+        if(args.length < 2 || args.length > 2) {
+            msg.channel.send("Mal escrit bro, adivina com es ;)");
+            return playData;
+        }
         const textChannel = msg.channel;
         const voiceChannel = msg.member.voice.channel;
         if (!voiceChannel)
@@ -37,8 +41,9 @@ module.exports = {
             playData.textChannel = textChannel;
         }
 
-        playData.queue = [...playlist];
-        
+        if(args[1] == "r") playData.queue = getRandomQueue();
+        else if(args[1] == "n") playData.queue = [...playlist];
+
         try {
             const connection = await voiceChannel.join();
             playData.connection = connection;
@@ -50,6 +55,17 @@ module.exports = {
         return playData;
     }
 };
+
+const getRandomQueue = () => {
+    let pl = [...playlist];
+    let res = [];
+    while(pl.length > 0) {
+        let i = Math.floor(Math.random()*pl.length);
+        res.push(pl[i]);
+        pl.splice(i, 1);
+    }
+    return res;
+}
 
 
 function ytSearchWrapper(query) {

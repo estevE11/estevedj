@@ -49,7 +49,7 @@ module.exports = {
         song = query_answer[0];
 
         if(playData.playing) {
-            playData.queue.push(song);
+            playData.queue.splice(1, 0, song);
             msg.channel.send(song.title + " s'ha afegit a la cua.");
         } else {
             try {
