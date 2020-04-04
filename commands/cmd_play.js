@@ -11,7 +11,7 @@ const opts = {
 
 module.exports = {
     name: "Play",
-    desc: "Plays a song",
+    desc: "Reprodueix un temonaco",
     short: "play",
     exec: async (msg, playData, args) => {
         if(args.length == 1) {

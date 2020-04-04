@@ -16,7 +16,7 @@ client.once('ready', () => {
 client.on("message", async (message) => {
     if(message.author.bot) return;
     console.log("Message: " + message.content);
-    if(message.content.startsWith(prefix)) await parser(message);
+    if(message.content.startsWith(prefix)) await parser.parse(message);
 
     if(message.content.startsWith("-play")) message.channel.send("Ja estas utilitzan a la competencia, cabron?");
 });

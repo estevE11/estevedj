@@ -1,6 +1,6 @@
 module.exports = {
     name: "Skip",
-    desc: "Skips current song",
+    desc: "Aquest comando esta fet per penya impacient que no viu la vida amb calma.",
     short: "skip",
     exec: (msg, playData, args) => {
         if (!msg.member.voice.channel)

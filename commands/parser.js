@@ -1,9 +1,13 @@
-const commands = [
+exports.commands = [
+    require("./cmd_help"),
     require("./cmd_ping"),
     require("./cmd_play"),
-    require("./cmd_add"),
     require("./cmd_skip"),
+    require("./cmd_showqueue"),
     require("./cmd_playlist"),
+    require("./cmd_showplaylist"),
+    require("./cmd_add"),
+    require("./cmd_remove")
 ];
 
 let playData = {
@@ -15,11 +19,11 @@ let playData = {
     playing: false,
 };
 
-module.exports = async (msg) => {
+exports.parse = async (msg) => {
     args = msg.content.split(" ");
     const cmd_short = args[0].substring(1, args[0].length);
 
-    commands.forEach(async it => {
+    this.commands.forEach(async it => {
         if(cmd_short === it.short) {
             playData = await it.exec(msg, playData, args);
         }

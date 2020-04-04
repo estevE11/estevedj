@@ -13,7 +13,7 @@ const opts = {
 
 module.exports = {
     name: "Playlist",
-    desc: "Plays the playlist",
+    desc: "Reprodueix LA playlist",
     short: "playlist",
     exec: async (msg, playData, args) => {
         const textChannel = msg.channel;

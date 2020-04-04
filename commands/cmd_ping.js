@@ -1,6 +1,6 @@
 module.exports = {
     name: "Ping",
-    desc: "To ping, answers pong.",
+    desc: "A ping, respon pong",
     short: "ping",
     exec: (msg, playData, args) => {
         msg.channel.send("pong");

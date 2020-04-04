@@ -7,7 +7,7 @@ const playlist = require("./../playlist.json");
 
 module.exports = {
     name: "Add",
-    desc: "Addsa a song to the playlist",
+    desc: "Afegeix un temonaco a la playlist locooo",
     short: "add",
     exec: async (msg, playData, args) => {
         if(args.length == 1) {
