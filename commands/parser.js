@@ -7,7 +7,8 @@ exports.commands = [
     require("./cmd_playlist"),
     require("./cmd_showplaylist"),
     require("./cmd_add"),
-    require("./cmd_remove")
+    require("./cmd_remove"),
+    require("./cmd_disconnect")
 ];
 
 let playData = {
