@@ -20,12 +20,11 @@ module.exports = {
             query += args[i] + " ";
         }
 
-        console.log("caca0");
         query_answer = await ytSearchWrapper(query);
         const song = query_answer[0];
 
         if(add_song(song)) {
-            msg.channel.send("Aquesta canço ja esta a la playlist tait");
+            msg.channel.send("Aquesta cançó ja esta a la playlist puto retras, aquesta puta memoria imbecil.");
             return playData;
         }
         fs.writeFile("./playlist.json", JSON.stringify(playlist), (err) => {
@@ -41,7 +40,7 @@ module.exports = {
 const add_song = (song) => {
     add = true;
     playlist.forEach(it => {
-        if(song.title == it) add = false;
+        if(song.title == it.title) add = false;
     });
     if(add) playlist.push({title: song.title, link: song.link});
     return !add;
@@ -56,7 +55,6 @@ function ytSearchWrapper(query) {
     return new Promise((resolve, reject) => {
         ytsearch(query, opts, (err, res) => {
             if(err) {
-                console.log(err);
                 reject(err);
             }
             resolve(res);

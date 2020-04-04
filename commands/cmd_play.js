@@ -47,16 +47,20 @@ module.exports = {
 
         query_answer = await ytSearchWrapper(query);
         song = query_answer[0];
-        
-        try {
-            const connection = await voiceChannel.join();
-            playData.connection = connection;
-            playData.queue.push(song);
-            play(playData);
-        } catch (err) {
-            console.log(err);
-        }
 
+        if(playData.playing) {
+            playData.queue.push(song);
+            msg.channel.send(song.title + " s'ha afegit a la cua.");
+        } else {
+            try {
+                const connection = await voiceChannel.join();
+                playData.connection = connection;
+                playData.queue.push(song);
+                play(playData);
+            } catch (err) {
+                console.log(err);
+            }
+        }
         return playData;
     }
 };

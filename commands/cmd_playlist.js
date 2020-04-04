@@ -37,7 +37,7 @@ module.exports = {
             playData.textChannel = textChannel;
         }
 
-        playData.queue = playlist;
+        playData.queue = [...playlist];
         
         try {
             const connection = await voiceChannel.join();
