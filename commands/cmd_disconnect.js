@@ -3,7 +3,7 @@ module.exports = {
     desc: "Desconnecta el bot i li fa un reset",
     short: "disconnect",
     exec: (msg, playData, args) => {
-        if(playData.voiceChannel) playData.voiceChannel.leave();
+        if(playData.voiceChannel != undefined) playData.voiceChannel.leave();
         return {
             textChannel: null,
             voiceChannel: null,

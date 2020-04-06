@@ -27,6 +27,7 @@ module.exports = {
             msg.channel.send("Aquesta cançó ja esta a la playlist puto retras, aquesta puta memoria imbecil.");
             return playData;
         }
+        
         fs.writeFile("./playlist.json", JSON.stringify(playlist), (err) => {
             if(err) console.error(err);
             else console.log("Playlist saved!");
